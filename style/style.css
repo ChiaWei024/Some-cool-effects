@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+body h1 {
+  font-size: 3rem;
+  text-shadow: 1px 1px 5px black;
+  padding: 1rem;
+  text-align: center;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+  animation: fadeOut 5s forwards;
+}
+body .ctrlPanel {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: #b1aeae;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: 10;
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 1s ease-in-out;
+  overflow: hidden;
+  transform-origin: bottom right;
+}
+body .ctrlPanel h2 {
+  border-radius: 10%;
+  background: linear-gradient(45deg, #9bc3e4, #ccdbe7);
+  text-align: center;
+}
+body .ctrlPanel input {
+  margin: 0.25rem;
+  width: 30px;
+}
+body .material-symbols-outlined {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10;
+  font-size: 40px;
+  background: white;
+  border-radius: 10%;
+  box-shadow: 4px 4px 2px black;
+  cursor: pointer;
+}
+body .outter-odd {
+  background: black;
+  width: 10px;
+  height: 10px;
+}
+body .outter-even {
+  background: black;
+  width: 10px;
+  height: 10px;
+}
+body .left {
+  background: var(--LeftCubeColor);
+  width: var(--unitCubeSize);
+  height: var(--unitCubeSize);
+  transform-origin: top left;
+  transform: skewY(-30deg);
+}
+body .right {
+  position: absolute;
+  top: 0px;
+  left: calc(-1 * var(--unitCubeSize));
+  background: var(--RightCubeColor);
+  width: var(--unitCubeSize);
+  height: var(--unitCubeSize);
+  transform-origin: top right;
+  transform: skewY(30deg);
+}
+body .top {
+  position: absolute;
+  top: calc(-1 * var(--unitCubeSize));
+  left: 0px;
+  background: var(--TopCubeColor);
+  width: var(--unitCubeSize);
+  height: var(--unitCubeSize);
+  transform-origin: bottom left;
+  transform: rotate(-45deg) skew(15deg, 15deg) scale(1.115);
+}
+
+@keyframes collaspe_nav {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}/*# sourceMappingURL=style.css.map */

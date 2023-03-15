@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// all move to js
+// :root {
+//   //   --unitCubeSize: defined in js
+//   //   --LeftCubeColor: rgb(243, 222, 222);
+//   //   --RightCubeColor: rgb(233, 193, 193);
+//   //   --TopCubeColor: white;
+// }
+
+// $theme-color: #25335b;
+// $theme-color: #e2a4cd;
+$theme-color: white;
+
+body {
+  background: $theme-color;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  h1 {
+    font-size: 3rem;
+    text-shadow: 1px 1px 5px black;
+    padding: 1rem;
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: none;
+    animation: fadeOut 5s forwards;
+  }
+
+  // control panel
+
+  .ctrlPanel {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background: #b1aeae;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 10;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 1s ease-in-out;
+    overflow: hidden;
+    transform-origin: bottom right;
+
+    h2 {
+      border-radius: 10%;
+      background: linear-gradient(45deg, #9bc3e4, #ccdbe7);
+      text-align: center;
+    }
+
+    input {
+      margin: 0.25rem;
+      width: 30px;
+    }
+  }
+
+  // icon
+  .material-symbols-outlined {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+    font-size: 40px;
+    background: white;
+    border-radius: 10%;
+    box-shadow: 4px 4px 2px black;
+    cursor: pointer;
+  }
+
+  // position reference of odd line
+  .outter-odd {
+    background: black;
+    width: 10px;
+    height: 10px;
+  }
+  // position reference of even line
+  .outter-even {
+    background: black;
+    width: 10px;
+    height: 10px;
+  }
+
+  // unit cube
+  .left {
+    background: var(--LeftCubeColor);
+    width: var(--unitCubeSize);
+    height: var(--unitCubeSize);
+    transform-origin: top left;
+    transform: skewY(-30deg);
+  }
+  .right {
+    position: absolute;
+    top: 0px;
+    left: calc(-1 * var(--unitCubeSize));
+    background: var(--RightCubeColor);
+    width: var(--unitCubeSize);
+    height: var(--unitCubeSize);
+    transform-origin: top right;
+    transform: skewY(30deg);
+  }
+  .top {
+    position: absolute;
+    top: calc(-1 * var(--unitCubeSize));
+    left: 0px;
+    background: var(--TopCubeColor);
+    width: var(--unitCubeSize);
+    height: var(--unitCubeSize);
+    transform-origin: bottom left;
+    transform: rotate(-45deg) skew(15deg, 15deg) scale(1.115);
+  }
+  // unit cube
+}
+
+@keyframes collaspe_nav {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
